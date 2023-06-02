@@ -17,8 +17,8 @@ public class Basicdemo {
 	WebDriver driver = new ChromeDriver();
 	driver.navigate().to("http://registration.ap.gov.in/chatbot-0.0.1-SNAPSHOT/");
 	driver.manage().window().maximize();
-	driver.findElement(By.xpath("//a[text()='RTI Act']")).click();
-
-	driver.close();
+	//driver.findElement(By.xpath("//a[text()='RTI Act']")).click();
+driver.navigate().refresh();
+	//driver.close();
 	}
        }
