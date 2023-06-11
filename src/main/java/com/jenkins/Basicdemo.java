@@ -16,6 +16,7 @@ public class Basicdemo {
 	driver.manage().window().maximize();
 	//driver.findElement(By.xpath("//a[text()='RTI Act']")).click();
 driver.navigate().refresh();
+driver.navigate().refresh();
 	driver.close();
 	}
        }
