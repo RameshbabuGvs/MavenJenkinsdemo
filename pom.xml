@@ -4,9 +4,6 @@
   <artifactId>MavenJenkinsdemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  
-   
-  
  <dependencies>
 	  
 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -81,7 +78,7 @@
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>6.14.3</version>
-    <scope>test</scope>
+    <scope>compile</scope>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
@@ -124,6 +121,15 @@
           </suiteXmlFiles>
         </configuration>
       </plugin>
+  
+   <plugin>    
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+            <source>11</source>
+            <target>11</target>
+        </configuration>
+    </plugin>
+  
   
 </plugins>
  </build>
