@@ -17,6 +17,7 @@ public class Basicdemo {
 	//driver.findElement(By.xpath("//a[text()='RTI Act']")).click();
 driver.navigate().refresh();
 driver.navigate().refresh();
+System.out.println("Browser is refreshed");
 	driver.close();
 	}
        }
