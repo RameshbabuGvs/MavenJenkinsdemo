@@ -1,0 +1,74 @@
+pipeline{
+   agent any
+   
+   tools{
+   maven 'maven'
+   }
+   
+   stages{
+         stage("Build"){
+            
+            steps{
+            git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+            sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+            post {
+            sucess{
+            junit '**/target/surefire-reports/TEST-*.xml'
+            archiveArtifacts 'target/*.jar'    
+            }
+            }
+        }
+        
+         stage("Deploy on QA"){
+            steps{
+                echo("Deploy on QA")
+            }
+        }
+        
+         stage("Regression Automation Test"){
+            steps{
+            catchError(buildResult: 'SUCESS',stageResult:'FAILURE'){
+            git 'https://github.com/RameshbabuGvs/MavenJenkinsdemo.git'
+            sh "mvn clean install"
+            }
+               }}
+               
+               stage('Public Extent Report'){
+               steps{
+               public HTML([allowMissing: false,
+               alwaysLinkToLastBuild: false,
+               keepAll:false,
+               reportDir:'reports'
+               reportFiles:'TestExecutioneport.html',
+               reportName:'HTML Extent Report',
+               reportTitles:'])             
+               }
+               
+               }
+        
+      stage("Deploy on STAGE"){
+            steps{
+                echo("Deploy on STAGE")
+            }
+        }
+         stage("Run Sanity Testcases  on STAGE"){
+            
+            steps{
+                echo("Run Sanity Testcases  on STAGE")
+            }
+        }
+     stage("Deploy on PROD"){
+           steps{
+                echo("Deploy on PROD")
+            }
+        }
+         stage("Deploy on UA"){
+            
+            steps{
+                echo("Deploy on UA")
+            }
+        }
+   
+    }
+}
