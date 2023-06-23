@@ -41,7 +41,7 @@ pipeline{
                keepAll:false,
                reportDir:'reports'
                reportFiles:'TestExecutioneport.html',
-               reportName:'HTML Extent Report',
+               reportName:'HTML Extent Reports',
                reportTitles:'])             
                }
                
