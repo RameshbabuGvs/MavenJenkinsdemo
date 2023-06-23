@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Basicdemo {
+	
      @Test
 	public void testCalculateAppriasal() {
 
@@ -21,3 +22,4 @@ System.out.println("Browser is refreshed");
 	driver.close();
 	}
        }
+
