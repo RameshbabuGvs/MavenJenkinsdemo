@@ -26,7 +26,7 @@ pipeline{
             }
         }
         
-         stage("Regression Automation Test"){
+         stage("Regression Automation Test1"){
             steps{
             catchError(buildResult: 'SUCESS',stageResult:'FAILURE'){
             git 'https://github.com/RameshbabuGvs/MavenJenkinsdemo.git'
